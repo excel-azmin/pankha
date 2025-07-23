@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/modules/user/controller/user.controller.ts"],"sourcesContent":["import { Controller } from '@nestjs/common';\n\n@Controller('user')\nexport class UserController {\n  constructor() {}\n}\n"],"names":["UserController","constructor"],"mappings":";;;;+BAGaA;;;eAAAA;;;wBAHc;;;;;;;;;;AAGpB,IAAA,AAAMA,iBAAN,MAAMA;IACXC,aAAc,CAAC;AACjB"}
