@@ -1,0 +1,42 @@
+services:
+  nginx:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3001:80"
+    depends_on:
+      - api-gateway
+    networks:
+      - backbone-network
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile.dev
+    restart: always
+    env_file:
+      - ./api-gateway/.env
+    networks:
+      - backbone-network
+    volumes:
+      - ./api-gateway:/usr/src/app
+      - app-data:/usr/src/app/uploads
+  notification-service:
+    build:
+      context: ./microservices/notification-service
+      dockerfile: Dockerfile.dev
+    restart: always
+    env_file:
+      - ./microservices/notification-service/.env
+    networks:
+      - backbone-network
+    volumes:
+      - ./microservices/notification-service:/usr/src/app
+
+volumes:
+  app-data:
+    driver: local
+networks:
+  backbone-network:
+    external: true
