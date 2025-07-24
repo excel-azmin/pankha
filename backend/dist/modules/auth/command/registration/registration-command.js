@@ -14,4 +14,4 @@ let RegistrationCommand = class RegistrationCommand {
     }
 };
 
-//# sourceMappingURL=registation-command.js.map
+//# sourceMappingURL=registration-command.js.map

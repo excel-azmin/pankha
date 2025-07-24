@@ -15,4 +15,4 @@ let VerifyRegistrationCommand = class VerifyRegistrationCommand {
     }
 };
 
-//# sourceMappingURL=verify-registation-command.js.map
+//# sourceMappingURL=verify-registration-command.js.map

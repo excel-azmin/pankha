@@ -9,10 +9,10 @@ Object.defineProperty(exports, "RegistrationHandler", {
     }
 });
 const _cqrs = require("@nestjs/cqrs");
-const _jsonwebtokenservice = require("../../../common/lib/jwt-token/jsonwebtoken.service");
-const _rediscacheservice = require("../../../common/shared/cache/redis-cache.service");
-const _userservice = require("../../user/service/user.service");
-const _registationcommand = require("../command/registation-command");
+const _jsonwebtokenservice = require("../../../../common/lib/jwt-token/jsonwebtoken.service");
+const _rediscacheservice = require("../../../../common/shared/cache/redis-cache.service");
+const _userservice = require("../../../user/service/user.service");
+const _registrationcommand = require("./registration-command");
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -33,7 +33,7 @@ let RegistrationHandler = class RegistrationHandler {
     }
 };
 RegistrationHandler = _ts_decorate([
-    (0, _cqrs.CommandHandler)(_registationcommand.RegistrationCommand),
+    (0, _cqrs.CommandHandler)(_registrationcommand.RegistrationCommand),
     _ts_metadata("design:type", Function),
     _ts_metadata("design:paramtypes", [
         typeof _jsonwebtokenservice.JsonWebTokenService === "undefined" ? Object : _jsonwebtokenservice.JsonWebTokenService,
@@ -42,4 +42,4 @@ RegistrationHandler = _ts_decorate([
     ])
 ], RegistrationHandler);
 
-//# sourceMappingURL=registation-handler.js.map
+//# sourceMappingURL=registration-handler.js.map

@@ -9,9 +9,9 @@ Object.defineProperty(exports, "LoginHandler", {
     }
 });
 const _cqrs = require("@nestjs/cqrs");
-const _jsonwebtokenservice = require("../../../common/lib/jwt-token/jsonwebtoken.service");
-const _userservice = require("../../user/service/user.service");
-const _logincommand = require("../command/login-command");
+const _jsonwebtokenservice = require("../../../../common/lib/jwt-token/jsonwebtoken.service");
+const _userservice = require("../../../user/service/user.service");
+const _logincommand = require("../command/login/login-command");
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

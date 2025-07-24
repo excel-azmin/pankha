@@ -9,11 +9,11 @@ Object.defineProperty(exports, "VerifyRegistrationHandler", {
     }
 });
 const _cqrs = require("@nestjs/cqrs");
-const _rediscacheprefixconstants = require("../../../common/constants/redis-cache-prefix-constants");
-const _jsonwebtokenservice = require("../../../common/lib/jwt-token/jsonwebtoken.service");
-const _rediscacheservice = require("../../../common/shared/cache/redis-cache.service");
-const _userservice = require("../../user/service/user.service");
-const _verifyregistationcommand = require("../command/verify-registation-command");
+const _rediscacheprefixconstants = require("../../../../common/constants/redis-cache-prefix-constants");
+const _jsonwebtokenservice = require("../../../../common/lib/jwt-token/jsonwebtoken.service");
+const _rediscacheservice = require("../../../../common/shared/cache/redis-cache.service");
+const _userservice = require("../../../user/service/user.service");
+const _verifyregistrationcommand = require("./verify-registration-command");
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,7 +64,7 @@ let VerifyRegistrationHandler = class VerifyRegistrationHandler {
     }
 };
 VerifyRegistrationHandler = _ts_decorate([
-    (0, _cqrs.CommandHandler)(_verifyregistationcommand.VerifyRegistrationCommand),
+    (0, _cqrs.CommandHandler)(_verifyregistrationcommand.VerifyRegistrationCommand),
     _ts_metadata("design:type", Function),
     _ts_metadata("design:paramtypes", [
         typeof _jsonwebtokenservice.JsonWebTokenService === "undefined" ? Object : _jsonwebtokenservice.JsonWebTokenService,
@@ -73,4 +73,4 @@ VerifyRegistrationHandler = _ts_decorate([
     ])
 ], VerifyRegistrationHandler);
 
-//# sourceMappingURL=verify-registation-handler.js.map
+//# sourceMappingURL=verify-registration-handler.js.map

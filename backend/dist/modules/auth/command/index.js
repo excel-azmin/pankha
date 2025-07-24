@@ -8,10 +8,10 @@ Object.defineProperty(exports, "authCommands", {
         return authCommands;
     }
 });
-const _logincommand = require("./login-command");
-const _registationcommand = require("./registation-command");
+const _logincommand = require("./login/login-command");
+const _registrationcommand = require("./registration/registration-command");
 const authCommands = [
-    _registationcommand.RegistrationCommand,
+    _registrationcommand.RegistrationCommand,
     _logincommand.LoginCommand
 ];
 

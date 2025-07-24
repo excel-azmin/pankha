@@ -13,9 +13,9 @@ const _cqrs = require("@nestjs/cqrs");
 const _swagger = require("@nestjs/swagger");
 const _verifyauthguard = require("../../../common/shared/guards/verify-auth.guard");
 const _response = require("../../../common/shared/interface/response");
-const _logincommand = require("../command/login-command");
-const _registationcommand = require("../command/registation-command");
-const _verifyregistationcommand = require("../command/verify-registation-command");
+const _logincommand = require("../command/login/login-command");
+const _registrationcommand = require("../command/registration/registration-command");
+const _verifyregistrationcommand = require("../command/verification/verify-registration-command");
 const _loginauthdto = require("../dto/login-auth.dto");
 const _registrationauthdto = require("../dto/registration-auth.dto");
 const _verifyregistrationauthdto = require("../dto/verify-registration-auth.dto");
@@ -38,10 +38,10 @@ let AuthController = class AuthController {
         return 'authClerk';
     }
     async authRegistration(registrationAuthDto) {
-        return await this.commandBus.execute(new _registationcommand.RegistrationCommand(registrationAuthDto));
+        return await this.commandBus.execute(new _registrationcommand.RegistrationCommand(registrationAuthDto));
     }
     async authRegistrationVerify(verifyRegistrationAuthDto, req) {
-        return await this.commandBus.execute(new _verifyregistationcommand.VerifyRegistrationCommand(verifyRegistrationAuthDto, req.user));
+        return await this.commandBus.execute(new _verifyregistrationcommand.VerifyRegistrationCommand(verifyRegistrationAuthDto, req.user));
     }
     async authLogin(loginAuthDto) {
         return await this.commandBus.execute(new _logincommand.LoginCommand(loginAuthDto));
