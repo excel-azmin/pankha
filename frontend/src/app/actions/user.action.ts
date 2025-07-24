@@ -30,3 +30,32 @@ export async function syncUser() {
     console.error('Error syncing user:', error);
   }
 }
+
+export async function getUserByClerkId(clerkId: string) {
+  try {
+    const { getToken } = await auth();
+    const token = await getToken();
+
+    const response = await fetch(
+      `http://localhost:3001/api/auth/v1/user/${clerkId}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+
+    if (!response.ok) {
+      const error = await response.json();
+      console.error('Error fetching user:', error);
+      return null;
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching user by Clerk ID:', error);
+    return null;
+  }
+}
