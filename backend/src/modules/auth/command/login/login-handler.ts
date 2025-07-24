@@ -1,7 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { JsonWebTokenService } from 'src/common/lib/jwt-token/jsonwebtoken.service';
 import { UserService } from 'src/modules/user/service/user.service';
-import { LoginCommand } from '../command/login-command';
+import { LoginCommand } from './login-command';
 
 @CommandHandler(LoginCommand)
 export class LoginHandler implements ICommandHandler<LoginCommand> {

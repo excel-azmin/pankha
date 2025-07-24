@@ -4,9 +4,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { RedisCacheModule } from 'src/common/shared/cache/redis-cache.module';
 import { RequestEventEmitterModule } from 'src/common/shared/event-emitter/event-emitter.module';
 import { UserModule } from '../user/user.module';
-import { authCommands } from './command';
+import { authCommands, authHandlers } from './command';
 import { AuthController } from './controller/auth.controller';
-import { authHandlers } from './handlers/indext';
+
 import { AuthService } from './service/auth.service';
 
 @Module({

@@ -3,7 +3,7 @@ import { USER_REGISTRATION_CACHE_PREFIX } from 'src/common/constants/redis-cache
 import { JsonWebTokenService } from 'src/common/lib/jwt-token/jsonwebtoken.service';
 import { RedisCacheService } from 'src/common/shared/cache/redis-cache.service';
 import { UserService } from 'src/modules/user/service/user.service';
-import { VerifyRegistrationCommand } from '../command/verify-registation-command';
+import { VerifyRegistrationCommand } from './verify-registration-command';
 
 @CommandHandler(VerifyRegistrationCommand)
 export class VerifyRegistrationHandler

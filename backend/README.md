@@ -29,7 +29,10 @@
 ## Installation
 
 ```bash
-$ pnpm install
+pnpm install
+npx prisma generate
+npx prisma migrate dev --name init
+
 ```
 
 ## Running the app

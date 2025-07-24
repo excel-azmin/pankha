@@ -1,5 +1,5 @@
 import { VerifyOTPUserInfo } from 'src/common/shared/types';
-import { VerifyRegistrationAuthDto } from '../dto/verify-registration-auth.dto';
+import { VerifyRegistrationAuthDto } from '../../dto/verify-registration-auth.dto';
 
 export class VerifyRegistrationCommand {
   constructor(
