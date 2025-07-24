@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navbar';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -25,11 +27,29 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="min-h-screen">
+              <Navbar />
+
+              <main className="py-8">
+                <div className="max-w-7xl mx-auto px-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div className="hidden lg:block col-span-3">Sidebar</div>
+                    <div className="col-span-1 lg:col-span-9">{children}</div>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
