@@ -1,13 +1,14 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { JwtModule } from '@nestjs/jwt';
+import { ClerkModule } from 'src/common/shared/ providers/clerk.module';
 import { RedisCacheModule } from 'src/common/shared/cache/redis-cache.module';
 import { RequestEventEmitterModule } from 'src/common/shared/event-emitter/event-emitter.module';
 import { UserModule } from '../user/user.module';
 import { authCommands, authHandlers } from './command';
 import { AuthController } from './controller/auth.controller';
-
 import { AuthService } from './service/auth.service';
+import { ClerkStrategy } from './strategy/clerk.strategy';
 
 @Module({
   imports: [
@@ -18,10 +19,11 @@ import { AuthService } from './service/auth.service';
     forwardRef(() => RequestEventEmitterModule),
     CqrsModule,
     RedisCacheModule,
+    ClerkModule,
     UserModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, ...authCommands, ...authHandlers],
+  providers: [AuthService, ClerkStrategy, ...authCommands, ...authHandlers],
   exports: [AuthService],
 })
 export class AuthModule {}
